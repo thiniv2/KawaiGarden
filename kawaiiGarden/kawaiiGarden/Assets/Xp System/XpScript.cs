@@ -17,14 +17,11 @@ public class XpScript : MonoBehaviour {
 
     public ParticleSystem ParticleSystem;
 
-    void Start () {
+    void Awake () {
 
         //PlayerPrefs.DeleteAll();
 
         xPToLevelUp = 30;
-
-        // dont get levels when xp is 0
-       // xP = 0;
 
         levelBar.value = xP;
 
@@ -33,8 +30,6 @@ public class XpScript : MonoBehaviour {
     }
 
 	void Update () {
-
-       // xP = PlayerPrefs.GetInt("XP");
 
         level = PlayerPrefs.GetInt("Level");
 
@@ -62,9 +57,7 @@ public class XpScript : MonoBehaviour {
 
     void Increaselevel()
     {
-        xP = 0;
-
-        PlayerPrefs.SetInt("XP", xP);
+        PlayerPrefs.SetInt("XP", 0);
         
         levelBar.value = xP;
 
@@ -84,56 +77,9 @@ public class XpScript : MonoBehaviour {
 
        else if (level < 3)
         {
-            xPToLevelUp += 40 * 4 / 2;
+            xPToLevelUp += 4000 * 4 / 2;
             levelBar.maxValue = xPToLevelUp;
         }
-
-        //else if(level < 20)
-        //{
-        //    xPToLevelUp += 70 * 7 / 2;
-        //    levelBar.maxValue = xPToLevelUp;
-        //}
-        //else if (level < 30)
-        //{
-        //    xPToLevelUp += 110 * 8 / 2;
-        //    levelBar.maxValue = xPToLevelUp;
-        //}
-
-        //else if (level < 40)
-        //{
-        //    xPToLevelUp += 200 * 9 / 2;
-        //    levelBar.maxValue = xPToLevelUp;
-        //}
-        //else if (level < 50)
-        //{
-        //    xPToLevelUp += 500 * 11 / 2;
-        //    levelBar.maxValue = xPToLevelUp;
-        //}
-        //else if (level < 60)
-        //{
-        //    xPToLevelUp += 1000 * 12 / 2;
-        //    levelBar.maxValue = xPToLevelUp;
-        //}
-        //else if (level < 70)
-        //{
-        //    xPToLevelUp += 5000 * 12 / 2;
-        //    levelBar.maxValue = xPToLevelUp;
-        //}
-        //else if (level < 80)
-        //{
-        //    xPToLevelUp += 7500 * 14 / 2;
-        //    levelBar.maxValue = xPToLevelUp;
-        //}
-        //else if (level < 90)
-        //{
-        //    xPToLevelUp += 10000 * 15 / 2;
-        //    levelBar.maxValue = xPToLevelUp;
-        //}
-        //else if (level < 100)
-        //{
-        //    xPToLevelUp += 5000 * 17 / 2;
-        //    levelBar.maxValue = xPToLevelUp;
-        //}
 
         level++;
         levelText.text = "Level: " + level.ToString();

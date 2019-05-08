@@ -15,27 +15,32 @@ public class Score : MonoBehaviour
 
     public XpScript xpScript;
 
-    void Awake()
-    {
-        
-    }
+    public int xpGained;
+
+    public bool GiveXp = false;
 
     void Update()
     {
         HighScore.text = "HighScore : " + (int)PlayerPrefs.GetFloat("HighScore");
 
+        // players score
         ScoreText.text = PlayerPos.position.x.ToString("0");
 
         if (!Player.activeInHierarchy)
         {
-            // give xp to player
-           // PlayerPrefs.SetInt("XP", xpScript.xP += 8);
+            if(GiveXp == false)
+            {
+                GiveXpToPlayer();
+                GiveXp = true;
+            }
+
 
             // move score text to end game screen
             ScoreText.transform.position = new Vector2(550, 1050);
 
             ScoreText.text = PlayerPos.position.x.ToString("0");
 
+            // highscore system
             if(PlayerPrefs.GetFloat("HighScore") < PlayerPos.position.x)
             {
                 PlayerPrefs.SetFloat("HighScore", PlayerPos.position.x);
@@ -45,4 +50,13 @@ public class Score : MonoBehaviour
 
         }
     }
+    public int  GiveXpToPlayer()
+    {
+        xpGained = PlayerPrefs.GetInt("XP") + 4;
+
+        PlayerPrefs.SetInt("XP", xpGained);
+
+        return PlayerPrefs.GetInt("XP");
+    }
+
 }
