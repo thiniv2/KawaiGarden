@@ -30,6 +30,12 @@ public class SpawnScript : MonoBehaviour {
 
         Vector3 Randomspawn = new Vector3(Random.Range(SpawnpointL.position.x, SpawnpointR.position.x), SpawnpointL.position.y, SpawnpointL.position.z);
 
+
+
+        //Instantiate(RB, SpawnPoint.position, transform.rotation);
+
+        //Instantiate(Fruit, Randomspawn, Quaternion.identity);
+
         if (Easy)
         {
             spawnTime = 1.25f;
@@ -48,12 +54,6 @@ public class SpawnScript : MonoBehaviour {
             SpawningTreshold = SpawnTresholdHard;
         }
 
-        //Instantiate(RB, SpawnPoint.position, transform.rotation);
-
-        //Instantiate(Fruit, Randomspawn, Quaternion.identity);
-
-
-
         InvokeRepeating("Spawn", spawnTime, spawnTime);
 
 
@@ -61,7 +61,23 @@ public class SpawnScript : MonoBehaviour {
 
     void Update()
     {
+        if (Easy)
+        {
+            spawnTime = 1.25f;
+            SpawningTreshold = SpawnTresholdEasy;
+        }
 
+        if (Medium)
+        {
+            spawnTime = 0.75f;
+            SpawningTreshold = SpawnTresholdMedium;
+        }
+
+        if (Hard)
+        {
+            spawnTime = 0.45f;
+            SpawningTreshold = SpawnTresholdHard;
+        }
 
     }
 

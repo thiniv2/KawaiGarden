@@ -674,6 +674,8 @@ MonoBehaviour:
   HighScore: {fileID: 1300998133}
   xpScript: {fileID: 1836187152155848035, guid: d99453c31c1a2b9408d8bfc474883408,
     type: 3}
+  xpGained: 0
+  GiveXp: 0
 --- !u!4 &78061493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6591429462685974900, guid: 5f311179df826494db3781b15c60ef08,
