@@ -33,7 +33,7 @@ public class loadScene : MonoBehaviour
 	{
         KasviHuone.SetActive(true);
 	}
-
+ 
     public void LoadRengasPeli()
     {
         SceneManager.LoadScene("rengasPeli");
