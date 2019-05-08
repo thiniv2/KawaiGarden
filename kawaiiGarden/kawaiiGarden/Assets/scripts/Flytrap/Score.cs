@@ -28,6 +28,10 @@ public class Score : MonoBehaviour
 
         if (!Player.activeInHierarchy)
         {
+            // give xp to player
+           // PlayerPrefs.SetInt("XP", xpScript.xP += 8);
+
+            // move score text to end game screen
             ScoreText.transform.position = new Vector2(550, 1050);
 
             ScoreText.text = PlayerPos.position.x.ToString("0");
@@ -38,12 +42,6 @@ public class Score : MonoBehaviour
 
                 NewHighScoreText.SetActive(true);
             }
-
-            //xpScript.xP += 5;
-
-            //xpScript.levelBar.value = xpScript.xP;
-
-            //PlayerPrefs.SetInt("xP", xpScript.xP);
 
         }
     }

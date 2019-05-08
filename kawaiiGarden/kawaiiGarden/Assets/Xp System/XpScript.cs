@@ -17,19 +17,14 @@ public class XpScript : MonoBehaviour {
 
     public ParticleSystem ParticleSystem;
 
-
-    private void Awake()
-    {
-        // PlayerPrefs.DeleteAll();
-
-       
-    }
-
     void Start () {
+
+        //PlayerPrefs.DeleteAll();
 
         xPToLevelUp = 30;
 
-         xP = 0;
+        // dont get levels when xp is 0
+       // xP = 0;
 
         levelBar.value = xP;
 
@@ -39,11 +34,15 @@ public class XpScript : MonoBehaviour {
 
 	void Update () {
 
+       // xP = PlayerPrefs.GetInt("XP");
+
         level = PlayerPrefs.GetInt("Level");
 
         levelText.text = "Level: " + PlayerPrefs.GetInt("Level");
 
-         levelBar.value = xP;
+        xP = PlayerPrefs.GetInt("XP");
+
+        levelBar.value = xP;
 
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -55,37 +54,37 @@ public class XpScript : MonoBehaviour {
 
         if(levelBar.value >= levelBar.maxValue)
         {
-            Inceaselevel();
+            Increaselevel();
 
             PlayerPrefs.SetInt("Level", level);
         }
 	}
 
-    void Inceaselevel()
+    void Increaselevel()
     {
         xP = 0;
+
+        PlayerPrefs.SetInt("XP", xP);
+        
         levelBar.value = xP;
 
         ParticleSystem.Play(true);
 
-        level++;
-        levelText.text = "Level: " + level.ToString();
-
         if (level < 1)
         {
-            xPToLevelUp += 30 / 2;
+            xPToLevelUp += 20 * 2 / 2;
             levelBar.maxValue = xPToLevelUp;
         }
 
         else if (level < 2)
         {
-            xPToLevelUp += 40 / 2;
+            xPToLevelUp += 30 * 3 / 2;
             levelBar.maxValue = xPToLevelUp;
         }
 
        else if (level < 3)
         {
-            xPToLevelUp += 50 / 2;
+            xPToLevelUp += 40 * 4 / 2;
             levelBar.maxValue = xPToLevelUp;
         }
 
@@ -136,7 +135,8 @@ public class XpScript : MonoBehaviour {
         //    levelBar.maxValue = xPToLevelUp;
         //}
 
+        level++;
+        levelText.text = "Level: " + level.ToString();
 
-        
     }
 }
