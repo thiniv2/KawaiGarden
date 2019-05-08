@@ -89,7 +89,4 @@ public class loadScene : MonoBehaviour
         toggleGames.SetActive(false);
     }
 
-
-
-
 }
