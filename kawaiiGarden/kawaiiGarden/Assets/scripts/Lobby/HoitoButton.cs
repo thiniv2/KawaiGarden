@@ -12,12 +12,6 @@ public class HoitoButton : MonoBehaviour
 
     public Animator anim;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void togglehoito()
     {
         if (!toggleHoito.activeInHierarchy)
@@ -48,6 +42,8 @@ public class HoitoButton : MonoBehaviour
     {
         xpScript.xP += 2;
         xpScript.levelBar.value = xpScript.xP;
+
+        PlayerPrefs.SetInt("XP", xpScript.xP);
     }
 
     public void GiveHappiness()
