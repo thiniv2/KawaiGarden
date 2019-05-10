@@ -44,16 +44,18 @@ public class HoitoButton : MonoBehaviour
         toggleHoito.SetActive(false);
     }
 
-    public void Ruoka()
+    public void GiveXP()
     {
         xpScript.xP += 2;
         xpScript.levelBar.value = xpScript.xP;
     }
 
-    public void Musiikki()
+    public void GiveHappiness()
     {
         happinessScript.xP += 2;
         happinessScript.levelBar.value = happinessScript.xP;
+
+        PlayerPrefs.SetInt("Happiness", happinessScript.xP);
     }
 
 }
