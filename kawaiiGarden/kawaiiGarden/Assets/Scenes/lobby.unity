@@ -463,6 +463,7 @@ MonoBehaviour:
   xP: 0
   levelBar: {fileID: 11475318}
   levelText: {fileID: 936687506}
+  MinusHappiness: 1
 --- !u!1 &94696041
 GameObject:
   m_ObjectHideFlags: 0

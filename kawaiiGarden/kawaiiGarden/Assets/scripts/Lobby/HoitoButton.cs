@@ -48,10 +48,10 @@ public class HoitoButton : MonoBehaviour
 
     public void GiveHappiness()
     {
-        happinessScript.xP += 2;
+        happinessScript.xP += 10;
         happinessScript.levelBar.value = happinessScript.xP;
 
-        PlayerPrefs.SetInt("Happiness", happinessScript.xP);
+        PlayerPrefs.SetFloat("Happiness", happinessScript.xP);
     }
 
 }
