@@ -13,6 +13,8 @@ public class loadScene : MonoBehaviour
     public Animator anim;
     public Animator animHoito;
 
+
+    
     public void LoadLobby()
 	{
         Time.timeScale = 1f;
@@ -75,7 +77,7 @@ public class loadScene : MonoBehaviour
         {
             anim.SetBool("Close", true);
 
-            Invoke("CloseGames", 0.4f);
+            Invoke("CloseGames", 0.7f);
         }
 
         if (toggleHoito.activeSelf)

@@ -86,10 +86,22 @@ public class SpawnScript : MonoBehaviour {
         Vector3 Randomspawn = new Vector3(Random.Range(SpawnpointL.position.x, SpawnpointR.position.x), SpawnpointL.position.y, SpawnpointL.position.z);
 
         int SpawnPointIndex = Random.Range(0, FallingObjects.Length);
+
         if (Random.Range(0f, 100f) < SpawningTreshold)
             SpawnPointIndex = 0; // Goodnes
+
+        else if (Random.Range(0f, 100f) < SpawningTreshold)
+            SpawnPointIndex = 2; // Goodnes
+
+        else if (Random.Range(0f, 100f) < SpawningTreshold)
+            SpawnPointIndex = 3; // Goodnes
+
+        else if (Random.Range(0f, 100f) < SpawningTreshold)
+            SpawnPointIndex = 4; // Goodnes
+
         else
             SpawnPointIndex = 1; // Badness
+
 
         Instantiate(FallingObjects[SpawnPointIndex], Randomspawn, Quaternion.identity);
     }

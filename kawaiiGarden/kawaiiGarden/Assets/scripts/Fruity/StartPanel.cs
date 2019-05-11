@@ -26,34 +26,4 @@ public class StartPanel : MonoBehaviour
         
     }
 
-    public void ToggleEasy()
-    {
-        SpawnScript.Easy = true;
-        SpawnScript.Medium = false;
-        SpawnScript.Hard = false;
-
-        //SpawnScript.spawnTime = 1.25f;
-        //SpawnScript.SpawningTreshold = 80f;
-    }
-
-    public void ToggleMedium()
-    {
-        SpawnScript.Easy = false;
-        SpawnScript.Medium = true;
-        SpawnScript.Hard = false;
-
-        //SpawnScript.spawnTime = 0.75f;
-        //SpawnScript.SpawningTreshold = 50f;
-    }
-
-    public void ToggleHard()
-    {
-        SpawnScript.Easy = false;
-        SpawnScript.Medium = false;
-        SpawnScript.Hard = true;
-
-        //SpawnScript.spawnTime = 0.45f;
-        //SpawnScript.SpawningTreshold = 25f;
-    }
-
 }

@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (isMoving)
             previousDistanceToTouchPos = (touchpos - transform.position).magnitude;
-        pos = new Vector3(Input.mousePosition.x, 500, 10);
+        pos = new Vector3(Input.mousePosition.x, 400, 10);
         pos = Camera.main.ScreenToWorldPoint(pos);
         transform.position = Vector3.Lerp(transform.position, pos, speed * Time.deltaTime);
 

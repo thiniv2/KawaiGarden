@@ -13,12 +13,15 @@ public class HappinessScript : MonoBehaviour {
 
     public Text levelText;
 
-    public float MinusHappiness;
+    private void Awake()
+    {
+        
+    }
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
-       PlayerPrefs.DeleteAll();
+       //PlayerPrefs.DeleteAll();
 
         xPToLevelUp = 300;
 
@@ -42,21 +45,16 @@ public class HappinessScript : MonoBehaviour {
             xP += 2;
             levelBar.value = xP;
         }
-
-        if (xP < 0)
-        {
-            xP = 0;
-        }
-
     }
 
     void LoseHappiness()
     {
 
         float value1 = PlayerPrefs.GetFloat("Happiness");
-        float value2 = value1 - MinusHappiness * Time.deltaTime;
+        float value2 = value1 - 1 * Time.deltaTime;
+        float value3 = Mathf.Clamp(value2, 0, 300);
 
-        PlayerPrefs.SetFloat("Happiness", value2);
+        PlayerPrefs.SetFloat("Happiness", value3);
     }
      
 }
