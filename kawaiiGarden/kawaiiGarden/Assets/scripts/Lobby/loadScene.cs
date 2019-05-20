@@ -10,10 +10,9 @@ public class loadScene : MonoBehaviour
     public GameObject Settings;
     public GameObject KasviHuone;
 
+    public HoitoButton hoitoButton;
+
     public Animator anim;
-    public Animator animHoito;
-
-
     
     public void LoadLobby()
 	{
@@ -82,7 +81,9 @@ public class loadScene : MonoBehaviour
 
         if (toggleHoito.activeSelf)
 		{
-			toggleHoito.SetActive(false);
+            hoitoButton.anim.SetBool("CloseHoito", true);
+
+            hoitoButton.Invoke("CloseHoito", 0.7f);
 		}
     }
 

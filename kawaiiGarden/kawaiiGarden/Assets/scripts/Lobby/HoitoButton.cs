@@ -9,6 +9,7 @@ public class HoitoButton : MonoBehaviour
 
     public XpScript xpScript;
     public HappinessScript happinessScript;
+    public loadScene LoadScene;
 
     public Animator anim;
 
@@ -23,12 +24,14 @@ public class HoitoButton : MonoBehaviour
         {
             anim.SetBool("CloseHoito", true);
 
-            Invoke("CloseHoito", 0.4f);
+            Invoke("CloseHoito", 0.7f);
         }
 
         if (toggleGames.activeSelf)
         {
-            toggleGames.SetActive(false);
+            LoadScene.anim.SetBool("Close", true);
+
+            LoadScene.Invoke("CloseGames", 0.7f);
         }
 
     }

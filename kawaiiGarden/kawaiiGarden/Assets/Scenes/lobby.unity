@@ -1861,6 +1861,49 @@ RectTransform:
   m_AnchoredPosition: {x: -231.401, y: 107.845215}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &489544014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 489544016}
+  - component: {fileID: 489544015}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &489544015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489544014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bedbabfc6b65fc74ebb615083d73e1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &489544016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489544014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &552002045
 GameObject:
   m_ObjectHideFlags: 0
@@ -3742,8 +3785,8 @@ MonoBehaviour:
   toggleHoito: {fileID: 121647978}
   Settings: {fileID: 246454534}
   KasviHuone: {fileID: 1668652775}
+  hoitoButton: {fileID: 2118265468}
   anim: {fileID: 1665438834}
-  animHoito: {fileID: 121647980}
 --- !u!114 &967313896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7924,6 +7967,7 @@ MonoBehaviour:
   toggleGames: {fileID: 1665438832}
   xpScript: {fileID: 718096212}
   happinessScript: {fileID: 94617645}
+  LoadScene: {fileID: 967313895}
   anim: {fileID: 121647980}
 --- !u!1001 &893229438397973319
 PrefabInstance:
@@ -8066,6 +8110,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1836187153129129373, guid: d99453c31c1a2b9408d8bfc474883408,
+        type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1836187152155848036, guid: d99453c31c1a2b9408d8bfc474883408,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8126,6 +8175,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1836187154169519866, guid: d99453c31c1a2b9408d8bfc474883408,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1836187153129129375, guid: d99453c31c1a2b9408d8bfc474883408,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8134,7 +8188,7 @@ PrefabInstance:
     - target: {fileID: 1836187153129129375, guid: d99453c31c1a2b9408d8bfc474883408,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -264
+      value: -266.6
       objectReference: {fileID: 0}
     - target: {fileID: 1836187153129129375, guid: d99453c31c1a2b9408d8bfc474883408,
         type: 3}
