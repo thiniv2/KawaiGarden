@@ -1,18 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Instance : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public GameObject HoitoGroup;
+    public GameObject GamesGroup;
+
+    public HoitoButton hoito;
+    public loadScene Games;
+
+
+   public void CloseAll()
     {
-        
+        Games.anim.SetBool("Close", true);
+
+        Games.Invoke("CloseGames", 0.7f);
+
+        hoito.anim.SetBool("CloseHoito", true);
+
+        hoito.Invoke("CloseHoito", 0.7f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
