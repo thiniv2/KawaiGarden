@@ -12,13 +12,20 @@ public class Instance : MonoBehaviour
 
    public void CloseAll()
     {
-        Games.anim.SetBool("Close", true);
+        if(GamesGroup.activeInHierarchy)
+        {
+            Games.anim.SetBool("Close", true);
 
-        Games.Invoke("CloseGames", 0.7f);
+            Games.Invoke("CloseGames", 0.7f);
+        }
+        
+        if(HoitoGroup.activeInHierarchy)
+        {
+            hoito.anim.SetBool("CloseHoito", true);
 
-        hoito.anim.SetBool("CloseHoito", true);
-
-        hoito.Invoke("CloseHoito", 0.7f);
+            hoito.Invoke("CloseHoito", 0.7f);
+        }
+        
     }
 
 }
