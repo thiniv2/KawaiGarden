@@ -15,26 +15,28 @@ public class SpawnScript : MonoBehaviour {
 
     public bool Hard;
 
+    public bool Insane;
+
     public float SpawningTreshold;
 
     public Transform SpawnpointL;
 
     public Transform SpawnpointR;
 
-    public int SpawnTresholdEasy = 80;
-    public int SpawnTresholdMedium = 50;
-    public int SpawnTresholdHard = 25;
+    private int SpawnTresholdEasy = 80;
+    private int SpawnTresholdMedium = 50;
+    private int SpawnTresholdHard = 30;
 
     // Use this for initialization
+
+    //void Awake()
+    //{
+    //    Hard = false;
+    //}
+
     public void Start () {
 
         Vector3 Randomspawn = new Vector3(Random.Range(SpawnpointL.position.x, SpawnpointR.position.x), SpawnpointL.position.y, SpawnpointL.position.z);
-
-
-
-        //Instantiate(RB, SpawnPoint.position, transform.rotation);
-
-        //Instantiate(Fruit, Randomspawn, Quaternion.identity);
 
         if (Easy)
         {
@@ -48,38 +50,65 @@ public class SpawnScript : MonoBehaviour {
             SpawningTreshold = SpawnTresholdMedium;
         }
 
-        if (Hard)
+      else if (Hard)
         {
-            spawnTime = 0.45f;
-            SpawningTreshold = SpawnTresholdHard;
+            spawnTime = 0.55f;
+           // SpawningTreshold = SpawnTresholdHard;
+            SpawningTreshold = 30;
         }
+
+        //if (Insane)
+        //{
+        //    spawnTime = 0.35f;
+        //    SpawningTreshold = 25;
+        //}
 
         InvokeRepeating("Spawn", spawnTime, spawnTime);
 
 
     }
 
-    void Update()
+    
+
+    public void SetEasy()
     {
-        if (Easy)
-        {
-            spawnTime = 1.25f;
-            SpawningTreshold = SpawnTresholdEasy;
-        }
+        spawnTime = 1.25f;
+        SpawningTreshold = SpawnTresholdEasy;
 
-        if (Medium)
-        {
-            spawnTime = 0.75f;
-            SpawningTreshold = SpawnTresholdMedium;
-        }
-
-        if (Hard)
-        {
-            spawnTime = 0.45f;
-            SpawningTreshold = SpawnTresholdHard;
-        }
-
+        Easy = true;
+        Medium = false;
+        Hard = false;
     }
+
+   public void SetMedium()
+    {
+        spawnTime = 0.75f;
+        SpawningTreshold = SpawnTresholdMedium;
+
+        Easy = false;
+        Medium = true;
+        Hard = false;
+    }
+
+    public void SetHard()
+    {
+        spawnTime = 0.45f;
+        SpawningTreshold = SpawnTresholdHard;
+
+        Easy = false;
+        Medium = false;
+        Hard = true;
+    }
+
+    //public void SetInsane()
+    //{
+    //    spawnTime = 0.25f;
+    //    SpawningTreshold = 20;
+
+    //    Easy = false;
+    //    Medium = false;
+    //    Hard = true;
+    //}
 
     public void Spawn()
     {
@@ -90,14 +119,16 @@ public class SpawnScript : MonoBehaviour {
         if (Random.Range(0f, 100f) < SpawningTreshold)
             SpawnPointIndex = 0; // Goodnes
 
-        else if (Random.Range(0f, 100f) < SpawningTreshold)
-            SpawnPointIndex = 2; // Goodnes
+            // these are the other fruits
 
-        else if (Random.Range(0f, 100f) < SpawningTreshold)
-            SpawnPointIndex = 3; // Goodnes
+        //else if (Random.Range(0f, 100f) < SpawningTreshold)
+        //    SpawnPointIndex = 2; // Goodnes
 
-        else if (Random.Range(0f, 100f) < SpawningTreshold)
-            SpawnPointIndex = 4; // Goodnes
+        //else if (Random.Range(0f, 100f) < SpawningTreshold)
+        //    SpawnPointIndex = 3; // Goodnes
+
+        //else if (Random.Range(0f, 100f) < SpawningTreshold)
+        //    SpawnPointIndex = 4; // Goodnes
 
         else
             SpawnPointIndex = 1; // Badness
