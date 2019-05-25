@@ -10,6 +10,8 @@ public class ScoreScript : MonoBehaviour {
 
     public Text textl;
 
+    public Text HighscoreText;
+
     public GameObject Panel;
 
     public GameObject player;
@@ -47,6 +49,15 @@ public class ScoreScript : MonoBehaviour {
         if(Panel.activeInHierarchy)
         {
             Time.timeScale = 0f;
+        }
+
+        HighscoreText.text = "Highscore : " + PlayerPrefs.GetFloat("HighscoreFruity").ToString();
+
+        // highscore system
+        if (PlayerPrefs.GetFloat("HighscoreFruity") < score)
+        {
+            PlayerPrefs.SetFloat("HighscoreFruity", score);
+
         }
     }
 }

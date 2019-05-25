@@ -12,7 +12,7 @@ public class Instance : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
     }
 
    public void CloseAll()

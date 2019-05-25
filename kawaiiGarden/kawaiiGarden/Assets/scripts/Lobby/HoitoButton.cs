@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class HoitoButton : MonoBehaviour
 {
@@ -10,6 +9,10 @@ public class HoitoButton : MonoBehaviour
     public XpScript xpScript;
     public HappinessScript happinessScript;
     public loadScene LoadScene;
+
+    public ParticleSystem particleSystemB;
+
+    public Button MusicButton;
 
     public Animator anim;
 
@@ -49,12 +52,24 @@ public class HoitoButton : MonoBehaviour
         PlayerPrefs.SetInt("XP", xpScript.xP);
     }
 
+    public void Music()
+    {
+        MusicButton.interactable = false;
+
+        Invoke("GiveHappiness", 2f);
+
+    }
+
     public void GiveHappiness()
     {
-        happinessScript.xP += 10;
+        happinessScript.xP += 30;
         happinessScript.levelBar.value = happinessScript.xP;
 
         PlayerPrefs.SetFloat("Happiness", happinessScript.xP);
+
+        particleSystemB.Play(true);
+
+        MusicButton.interactable = true;
     }
 
 }
