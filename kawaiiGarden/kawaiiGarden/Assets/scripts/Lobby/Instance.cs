@@ -10,6 +10,11 @@ public class Instance : MonoBehaviour
     public loadScene Games;
 
 
+    void Start()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
    public void CloseAll()
     {
         if(GamesGroup.activeInHierarchy)

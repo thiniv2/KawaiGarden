@@ -7,15 +7,11 @@ public class SpawnScript : MonoBehaviour {
 
     public Transform[] FallingObjects;
 
-    public float spawnTime;
-
     public bool Easy;
 
     public bool Medium;
 
     public bool Hard;
-
-    public bool Insane;
 
     public float SpawningTreshold;
 
@@ -23,16 +19,37 @@ public class SpawnScript : MonoBehaviour {
 
     public Transform SpawnpointR;
 
+    public float SpawnTime;
+
+    public float SpawnTimeEasy = 3f;
+    public float SpawnTimeMedium = 2f;
+    public float SpawnTimeHard = 1f;
+
     private int SpawnTresholdEasy = 80;
-    private int SpawnTresholdMedium = 50;
-    private int SpawnTresholdHard = 30;
+    private int SpawnTresholdMedium = 40;
+    private int SpawnTresholdHard = 20;
 
-    // Use this for initialization
+    // checkmarks
+    public GameObject EasyMark;
+    public GameObject MediumMark;
+    public GameObject HardMark;
 
-    //void Awake()
-    //{
-    //    Hard = false;
-    //}
+
+    public bool keepSpawning = true;
+
+    IEnumerator SpawnAtIntervals(float secondsBetweenSpawns)
+    {
+        // Repeat until keepSpawning == false or this GameObject is disabled/destroyed.
+        while (keepSpawning)
+        {
+            // Put this coroutine to sleep until the next spawn time.
+            yield return new WaitForSeconds(secondsBetweenSpawns);
+
+            // Now it's time to spawn again.
+            Spawn();
+        }
+    }
+
 
     public void Start () {
 
@@ -40,75 +57,106 @@ public class SpawnScript : MonoBehaviour {
 
         if (Easy)
         {
-            spawnTime = 1.25f;
+            SpawnTime = SpawnTimeEasy;
+
             SpawningTreshold = SpawnTresholdEasy;
+
+            StopAllCoroutines();
+            StartCoroutine(SpawnAtIntervals(SpawnTime));
         }
 
         if (Medium)
         {
-            spawnTime = 0.75f;
+            SpawnTime = SpawnTimeMedium;
+
             SpawningTreshold = SpawnTresholdMedium;
+
+            StopAllCoroutines();
+            StartCoroutine(SpawnAtIntervals(SpawnTime));
         }
 
-      else if (Hard)
+        else if (Hard)
         {
-            spawnTime = 0.55f;
-           // SpawningTreshold = SpawnTresholdHard;
-            SpawningTreshold = 30;
+            SpawnTime = SpawnTimeHard;
+
+            SpawningTreshold = SpawnTresholdHard;
+
+            StopAllCoroutines();
+            StartCoroutine(SpawnAtIntervals(SpawnTime));
+
         }
 
-        //if (Insane)
-        //{
-        //    spawnTime = 0.35f;
-        //    SpawningTreshold = 25;
-        //}
 
-        InvokeRepeating("Spawn", spawnTime, spawnTime);
-
+        
+        //  InvokeRepeating("Spawn", 2, spawnTime);
 
     }
 
-    
+    void Update()
+    {
+        
+
+        if (Easy)
+        {
+            EasyMark.SetActive(true);
+            MediumMark.SetActive(false);
+            HardMark.SetActive(false);
+        }
+
+       else if (Medium)
+        {
+            EasyMark.SetActive(false);
+            MediumMark.SetActive(true);
+            HardMark.SetActive(false);
+        }
+
+        else if (Hard)
+        {
+            EasyMark.SetActive(false);
+            MediumMark.SetActive(false);
+            HardMark.SetActive(true);
+        }
+    }
 
     public void SetEasy()
     {
-        spawnTime = 1.25f;
+        SpawnTime = SpawnTimeEasy;
         SpawningTreshold = SpawnTresholdEasy;
 
         Easy = true;
         Medium = false;
         Hard = false;
+
+        StopAllCoroutines();
+        StartCoroutine(SpawnAtIntervals(SpawnTime));
     }
 
    public void SetMedium()
     {
-        spawnTime = 0.75f;
+        SpawnTime = SpawnTimeMedium;
         SpawningTreshold = SpawnTresholdMedium;
 
         Easy = false;
         Medium = true;
         Hard = false;
+
+        StopAllCoroutines();
+        StartCoroutine(SpawnAtIntervals(SpawnTime));
+
     }
 
     public void SetHard()
     {
-        spawnTime = 0.45f;
+        SpawnTime = SpawnTimeHard;
         SpawningTreshold = SpawnTresholdHard;
 
         Easy = false;
         Medium = false;
         Hard = true;
+
+        StopAllCoroutines();
+        StartCoroutine(SpawnAtIntervals(SpawnTime));
     }
-
-    //public void SetInsane()
-    //{
-    //    spawnTime = 0.25f;
-    //    SpawningTreshold = 20;
-
-    //    Easy = false;
-    //    Medium = false;
-    //    Hard = true;
-    //}
 
     public void Spawn()
     {
@@ -133,10 +181,8 @@ public class SpawnScript : MonoBehaviour {
         else
             SpawnPointIndex = 1; // Badness
 
-
         Instantiate(FallingObjects[SpawnPointIndex], Randomspawn, Quaternion.identity);
     }
 
-    
 
 }

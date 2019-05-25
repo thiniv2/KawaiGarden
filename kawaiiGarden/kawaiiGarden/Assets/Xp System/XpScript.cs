@@ -19,9 +19,7 @@ public class XpScript : MonoBehaviour {
 
     void Awake () {
 
-        //PlayerPrefs.DeleteAll();
-
-        xPToLevelUp = 30;
+        xPToLevelUp = 20;
 
         levelBar.value = xP;
 
@@ -41,7 +39,7 @@ public class XpScript : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            xP += 2;
+            xP += 10;
             levelBar.value = xP;
 
             PlayerPrefs.SetInt("XP", xP);
@@ -53,35 +51,54 @@ public class XpScript : MonoBehaviour {
 
             PlayerPrefs.SetInt("Level", level);
         }
+
+        if(level == 3)
+        {
+            levelBar.value = 0;
+        }
 	}
 
     void Increaselevel()
     {
         PlayerPrefs.SetInt("XP", 0);
-        
-        levelBar.value = xP;
 
-        ParticleSystem.Play(true);
 
-        if (level < 1)
+         if (level < 1)
         {
             xPToLevelUp += 20 * 2 / 2;
             levelBar.maxValue = xPToLevelUp;
+
+            level++;
+
+            ParticleSystem.Play(true);
+
+            levelBar.value = xP;
         }
 
-        else if (level < 2)
+        else if (level <= 2)
         {
-            xPToLevelUp += 30 * 3 / 2;
+            xPToLevelUp += 20 * 2 / 2;
             levelBar.maxValue = xPToLevelUp;
+
+            level++;
+
+            ParticleSystem.Play(true);
+
+            levelBar.value = xP;
         }
 
-       else if (level < 3)
+        else if (level < 3)
         {
-            xPToLevelUp += 4000 * 4 / 2;
+            xPToLevelUp += 20 * 2 / 2;
             levelBar.maxValue = xPToLevelUp;
+
+            level++;
+
+            ParticleSystem.Play(true);
+
+            levelBar.value = xP;
         }
 
-        level++;
         levelText.text = "Level: " + level.ToString();
 
     }
