@@ -9,6 +9,7 @@ public class loadScene : MonoBehaviour
 	public GameObject toggleHoito;
     public GameObject Settings;
     public GameObject KasviHuone;
+    public GameObject RuokaHuone;
 
     public HoitoButton hoitoButton;
 
@@ -85,6 +86,11 @@ public class loadScene : MonoBehaviour
 
             hoitoButton.Invoke("CloseHoito", 0.7f);
 		}
+    }
+
+    public void OpenRuokaHuone()
+    {
+        RuokaHuone.SetActive(true);
     }
 
     public void CloseGames()
