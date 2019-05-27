@@ -12,18 +12,6 @@ public class RuokaHuone : MonoBehaviour
 
     public HoitoButton hoitoScript;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void TealCake()
     {
         Invoke("TealCakeEat", 0.6f);
@@ -73,5 +61,7 @@ public class RuokaHuone : MonoBehaviour
     {
         RuokaHuoneUI.SetActive(false);
     }
+
+   
 
 }

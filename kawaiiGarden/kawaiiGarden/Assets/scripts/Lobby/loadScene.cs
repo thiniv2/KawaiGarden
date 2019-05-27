@@ -98,4 +98,9 @@ public class loadScene : MonoBehaviour
         toggleGames.SetActive(false);
     }
 
+    public void DeletePrefs()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
 }
