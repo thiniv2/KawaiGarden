@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 65930898011478096}
   - component: {fileID: 54192874220682350}
   - component: {fileID: 114139633485201574}
+  - component: {fileID: 4177145968863950798}
   m_Layer: 0
   m_Name: FruitPurple
   m_TagString: Goodnes
@@ -123,6 +124,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b82ff4e058c0f5b409c7652dbbf17b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &4177145968863950798
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033659465160896}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 05dfa1aaac7de394bbd1853bf40d2848, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6023140435230230250
 GameObject:
   m_ObjectHideFlags: 0
