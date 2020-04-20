@@ -1,1 +1,2 @@
-at the moment to download KawaiigGarden go to bit.ly/kawaiigarden
+only supports android.
+to get the apk go to bit.ly/kawaiigarden
